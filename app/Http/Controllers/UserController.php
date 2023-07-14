@@ -27,6 +27,7 @@ class UserController extends Controller
     {
         $users = User::paginate(20); // Sayfada 10 kullanıcı göstermek için, isteğe bağlı olarak istediğiniz değeri verebilirsiniz
 
+
         return view('users.index', compact('users'));
     }
     public function randomCreateMultiple($n)
