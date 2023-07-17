@@ -25,7 +25,7 @@ class UserController extends Controller
     }
     public function index(Request $request)
     {
-        $users = User::paginate(20); // Sayfada 10 kullanıcı göstermek için, isteğe bağlı olarak istediğiniz değeri verebilirsiniz
+        $users = User::orderBy('name','asc') -> paginate(30); // Sayfada 10 kullanıcı göstermek için, isteğe bağlı olarak istediğiniz değeri verebilirsiniz
 
 
         return view('users.index', compact('users'));
