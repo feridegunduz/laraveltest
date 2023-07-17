@@ -40,7 +40,6 @@ class UserController extends Controller
             $user->email = $faker->email;
             $user->password = bcrypt('password');
 
-            // Diğer alanları da ekleyebilirsiniz
 
             $user->save();
         }
@@ -57,7 +56,18 @@ class UserController extends Controller
 
         return view('users.index', compact('users'));
     }
+    public function destroy($id)
+    {
+        $user = User::find($id);
 
+        if (!$user) {
+            return redirect()->route('users.index')->with('error', 'Kullanıcı bulunamadı.');
+        }
+
+        $user->delete();
+
+        return redirect()->route('users.index')->with('success', 'Kullanıcı başarıyla silindi.');
+    }
 
 }
 

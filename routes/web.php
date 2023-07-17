@@ -29,3 +29,4 @@ Route::get('users', [UserController::class, 'index']);
 Route::get('user/random/create', [UserController::class, 'randomCreate']);
 Route::get('user/random/create/{n}', [UserController::class, 'randomCreateMultiple']);
 Route::get('users/search', [UserController::class, 'search']);
+Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.destroy');

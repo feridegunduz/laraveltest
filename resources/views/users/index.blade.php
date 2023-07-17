@@ -26,10 +26,20 @@
             <td>{{ $user->id }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
-            <!-- Diğer alanlar buraya eklenebilir -->
+            <td>
+                <!-- Silme düğmesi -->
+                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Sil</button>
+                </form>
+            </td>
         </tr>
     @endforeach
     </tbody>
+
+
+
 </table>
 
 {{ $users->links('pagination::default') }}
